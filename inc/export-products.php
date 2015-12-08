@@ -108,20 +108,20 @@ class ExportProductsMSS
 
     ob_start();
     ?>
-		<good
-      isSerialTrackable="false"
-      weight="<?php echo $weight ?>"
-      salePrice="<?php echo $salePrice ?>"
-			buyPrice="<?php echo $buyPrice ?>"
-      name="<?php echo $product->get_title() ?>"
-			productCode="<?php echo get_post_meta($id, '_sku', true) ?>"
-      <?php echo $parentUuid ?>
-    >
-		  <code><?php echo get_post_meta($id, '_sku', true) ?></code>
-		  <?php if($uuid): ?>
-        <uuid><?php echo $uuid ?></uuid>
-      <?php endif; ?>
-		</good>
+      <good
+        isSerialTrackable="false"
+        weight="<?php echo $weight ?>"
+        salePrice="<?php echo $salePrice ?>"
+        buyPrice="<?php echo $buyPrice ?>"
+        name="<?php echo $product->get_title() ?>"
+		    productCode="<?php echo get_post_meta($id, '_sku', true) ?>"
+        <?php echo $parentUuid ?>
+      >
+        <code><?php echo get_post_meta($id, '_sku', true) ?></code>
+        <?php if($uuid): ?>
+          <uuid><?php echo $uuid ?></uuid>
+        <?php endif; ?>
+	    </good>
     <?php
     $xml = ob_get_contents();
     ob_get_clean();
